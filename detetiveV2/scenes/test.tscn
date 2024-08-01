@@ -1,0 +1,87 @@
+[gd_scene load_steps=17 format=3 uid="uid://ba0vj2ww8dif0"]
+
+[ext_resource type="Script" path="res://scripts/scene.gd" id="1_6o68i"]
+[ext_resource type="Texture2D" uid="uid://c57gyck0hyjkh" path="res://sprites/bgs/initial.png" id="1_u1d6w"]
+[ext_resource type="Resource" uid="uid://c7m3puklhd571" path="res://dialogues/dialogTest.tres" id="2_rfcck"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="3_gk1bg"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="4_rm7rr"]
+[ext_resource type="Texture2D" uid="uid://bdeodjtkymvhl" path="res://sprites/characters/mayor.png" id="5_n4duv"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="5_stl6o"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="6_m411n"]
+[ext_resource type="Theme" uid="uid://b4f152moh4ayu" path="res://addons/dialogue_nodes/themes/bubblyClean.theme" id="9_ealru"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueBubble.gd" id="10_11kac"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_qhh6o"]
+script = ExtResource("4_rm7rr")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_7tovh"]
+script = ExtResource("5_stl6o")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_8d2wd"]
+script = ExtResource("6_m411n")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_mflrg"]
+script = ExtResource("4_rm7rr")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_nq1g0"]
+script = ExtResource("5_stl6o")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_lv584"]
+script = ExtResource("6_m411n")
+
+[node name="Test" type="Node2D"]
+position = Vector2(0, -53)
+script = ExtResource("1_6o68i")
+initial_dialogue = ExtResource("2_rfcck")
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(577, 325.5)
+scale = Vector2(0.72375, 0.549167)
+texture = ExtResource("1_u1d6w")
+metadata/_edit_lock_ = true
+
+[node name="Test" type="Sprite2D" parent="."]
+position = Vector2(913, 475)
+scale = Vector2(0.286922, 0.36667)
+texture = ExtResource("5_n4duv")
+
+[node name="Mayor" type="Sprite2D" parent="."]
+position = Vector2(235, 353)
+scale = Vector2(0.535651, 0.605533)
+texture = ExtResource("5_n4duv")
+
+[node name="DialogueBox" type="Panel" parent="."]
+offset_left = 243.0
+offset_top = 476.0
+offset_right = 921.0
+offset_bottom = 639.0
+scale = Vector2(0.985767, 1.03956)
+script = ExtResource("3_gk1bg")
+start_id = "1"
+sample_portrait = ExtResource("5_n4duv")
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_qhh6o"), SubResource("RichTextEffect_7tovh"), SubResource("RichTextEffect_8d2wd")])
+
+[node name="Detective" type="Sprite2D" parent="."]
+position = Vector2(580, 716)
+scale = Vector2(0.286922, 0.36667)
+
+[node name="DialogueBubble" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 272.0
+offset_top = 271.0
+offset_right = 412.0
+offset_bottom = 294.0
+theme = ExtResource("9_ealru")
+bbcode_enabled = true
+text = "Sample dialogue."
+fit_content = true
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_mflrg"), SubResource("RichTextEffect_nq1g0"), SubResource("RichTextEffect_lv584")]
+script = ExtResource("10_11kac")
+start_id = "2"
+dialogue_custom_effects = [SubResource("RichTextEffect_mflrg"), SubResource("RichTextEffect_nq1g0"), SubResource("RichTextEffect_lv584")]
+
+[connection signal="dialogue_processed" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_processed"]
+[connection signal="dialogue_signal" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_signal"]
+[connection signal="dialogue_processed" from="DialogueBubble" to="." method="_on_dialogue_bubble_dialogue_processed"]
+[connection signal="dialogue_signal" from="DialogueBubble" to="." method="_on_dialogue_bubble_dialogue_signal"]

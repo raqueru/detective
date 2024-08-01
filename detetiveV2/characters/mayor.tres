@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="CharacterList" load_steps=8 format=3 uid="uid://pi2qdfk1tuek"]
+
+[ext_resource type="Texture2D" uid="uid://bdeodjtkymvhl" path="res://sprites/characters/mayor.png" id="1_epuvg"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="2_7huy0"]
+[ext_resource type="Texture2D" uid="uid://b78m0j1k4x5r3" path="res://sprites/characters/mayor_sad.png" id="3_afu3q"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterList.gd" id="4_8d044"]
+
+[sub_resource type="Resource" id="Resource_hmehw"]
+script = ExtResource("2_7huy0")
+name = "Mayor"
+image = ExtResource("1_epuvg")
+color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_6v4vx"]
+script = ExtResource("2_7huy0")
+name = "Mayor"
+image = ExtResource("3_afu3q")
+color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_2r32r"]
+script = ExtResource("2_7huy0")
+name = "???"
+image = ExtResource("1_epuvg")
+color = Color(1, 1, 1, 1)
+
+[resource]
+script = ExtResource("4_8d044")
+characters = Array[ExtResource("2_7huy0")]([SubResource("Resource_hmehw"), SubResource("Resource_6v4vx"), SubResource("Resource_2r32r")])

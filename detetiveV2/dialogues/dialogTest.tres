@@ -1,0 +1,137 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://c7m3puklhd571"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_2rwao"]
+
+[resource]
+script = ExtResource("1_2rwao")
+starts = {
+"1": &"0_1",
+"2": &"0_2"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(-680, 160),
+"start_id": "1"
+},
+"0_2": {
+"link": &"1_3",
+"offset": Vector2(-561.307, 715.364),
+"start_id": "2"
+},
+"1_1": {
+"dialogue": "monologo 1",
+"offset": Vector2(-380, 120),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Detective"
+},
+"1_2": {
+"dialogue": "monologo2",
+"offset": Vector2(-20, 80),
+"options": {
+0: {
+"condition": {},
+"link": &"3_1",
+"text": ""
+}
+},
+"size": Vector2(300.001, 240),
+"speaker": "Detective"
+},
+"1_3": {
+"dialogue": "dialogo 1
+",
+"offset": Vector2(220, 480),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(311.725, 240),
+"speaker": "Mayor"
+},
+"1_4": {
+"dialogue": "dialogo 2",
+"offset": Vector2(600, 440),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(316.362, 240),
+"speaker": "Test"
+},
+"1_5": {
+"dialogue": "dialogo 3",
+"offset": Vector2(940, 440),
+"options": {
+0: {
+"condition": {},
+"link": &"3_2",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Mayor"
+},
+"1_6": {
+"dialogue": "teste",
+"offset": Vector2(1580, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"3_3",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Detective"
+},
+"1_7": {
+"dialogue": "testeeeee",
+"offset": Vector2(2240, 540),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Mayor"
+},
+"3_1": {
+"link": &"1_6",
+"offset": Vector2(320, 240),
+"signalValue": "Dialogue"
+},
+"3_2": {
+"link": &"1_7",
+"offset": Vector2(1300, 640),
+"signalValue": "Monologue"
+},
+"3_3": {
+"link": "END",
+"offset": Vector2(2040, 340),
+"signalValue": "Dialogue"
+}
+}
+variables = {
+"Mayor1": {
+"type": 1,
+"value": false
+}
+}
+strays = Array[String]([])
+characters = "res://characters/mayor.tres"
